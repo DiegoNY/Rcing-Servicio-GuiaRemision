@@ -17,7 +17,8 @@ export const CrearEstructuraGuiaRemision = (
         FechaIniTraslado: documento.FECINITRAS,
         PesoBruto: item.PESOITEM == "0" ? 1 : Number(item.PESOITEM),
         NroBultos: Number(item.BULTONITEM),
-        TipoDocConductor: Number(documento.TIPDOCTRAN),
+        TipoDocConductor:
+          documento.MODTRASGUI == "01" ? Number(documento.TIPDOCTRAN) : 1,
         NroDocConductor:
           documento.MODTRASGUI == "02"
             ? documento.NOMDOCCHOF
@@ -31,7 +32,7 @@ export const CrearEstructuraGuiaRemision = (
             ? documento.NOMTRANSPO
             : documento.NOMBCHOFER,
         NroLicencia: documento.NUMLICCHOF,
-        Placa: documento.NUMPLACA,
+        Placa: documento.NUMPLACA.replace("-", ""),
       });
     }
   });
