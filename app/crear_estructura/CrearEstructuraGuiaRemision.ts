@@ -18,7 +18,10 @@ export const CrearEstructuraGuiaRemision = (
         PesoBruto: item.PESOITEM == "0" ? 1 : Number(item.PESOITEM),
         NroBultos: Number(item.BULTONITEM),
         TipoDocConductor: Number(documento.TIPDOCTRAN),
-        NroDocConductor: Number(documento.NUMDOCTRAN),
+        NroDocConductor:
+          documento.MODTRASGUI == "02"
+            ? documento.NOMDOCCHOF
+            : documento.NUMDOCTRAN,
         DireccionLlegada: documento.DIRLLEGADA,
         UbigeoLlegada: Number(documento.UBILLEGADA),
         DireccionPartida: documento.DIRPARTIDA,

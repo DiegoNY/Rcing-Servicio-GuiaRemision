@@ -30,7 +30,7 @@ export type GuiaRemision = {
   PesoBruto: number;
   NroBultos: number;
   TipoDocConductor: number;
-  NroDocConductor: number;
+  NroDocConductor: number | string;
   NombreConductor: string;
   NroLicencia: string;
   Placa: string;
