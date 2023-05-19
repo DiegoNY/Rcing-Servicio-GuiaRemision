@@ -3,7 +3,7 @@ import { CrearEstructuraGuiaRemision } from "../crear_estructura/CrearEstructura
 import { CrearEstructuraItem } from "../crear_estructura/CrearEstructuraItem";
 import { ProcesarArchivoType } from "../types/ProcesarArchivo.type";
 import { Documento } from "../types/serviceDoc";
-
+import { ignorar_documento_enviado_sunat } from "../config/config.json";
 export const ProcesarDocuemntos = (
   data: ProcesarArchivoType,
   ruc: string,
@@ -14,11 +14,15 @@ export const ProcesarDocuemntos = (
   const { cabecera, items, cuotas, respuestaSunat } = data;
 
   cabecera.map((documento) => {
+    if (documento.STATUS == 1 || documento.STATUS == "1") {
+      return;
+    }
     const documentoEstructurados = CrearEstructuraCabecera(
       documento,
       ruc,
       sucursal
     );
+
     const index = respuestaSunat.findIndex(
       (documentoDeclarado) =>
         documentoDeclarado.DOCUMENTO ==
@@ -27,8 +31,12 @@ export const ProcesarDocuemntos = (
     );
 
     // console.log(index);
-    if (index != -1) {
-      return;
+
+    if (documentoEstructurados.CodVenta != ignorar_documento_enviado_sunat) {
+      // console.log(index);
+      if (index != -1) {
+        return;
+      }
     }
     // console.log("paso");
     const itemEstructurados = CrearEstructuraItem(items, documento.SERNUMGUIA);

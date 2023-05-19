@@ -102,11 +102,27 @@ setInterval(() => {
 
 setInterval(LimpiarErrores, tiempo_limpiar_errores);
 
-/**Enviando estado de servicio cada 5 min  */
+/**Monitorear  */
+const ValidateTime = (fecha: string) => {
+  const date = fecha.split("/");
+  return `${date[2]}-${date[0].padStart(2, "0")}-${date[1].padStart(2, "0")}`;
+};
 
 setInterval(async () => {
   try {
-    const rta = await senStatus();
+    const rta = await axios.post(
+      "http://cpe.apufact.com/portal/public/api/MonitoreoServicioApuFact",
+      [
+        {
+          ruc: ruc,
+          idSucursal: id_sucursal,
+          Fecha: `${ValidateTime(
+            new Date().toLocaleDateString().substring(0, 10)
+          )}-${new Date().toLocaleTimeString().substring(0, 8)}`,
+        },
+      ]
+    );
+
     console.log(rta);
   } catch (error) {
     console.log(error);

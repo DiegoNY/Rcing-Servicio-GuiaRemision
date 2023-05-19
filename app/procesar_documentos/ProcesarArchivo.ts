@@ -31,8 +31,8 @@ export const ProcesarArchivos = async (
     const mockItemsDetalle = [mockDeta];
 
     return {
-      cabecera: mocckCAb,
-      items: mockItemsDetalle,
+      cabecera: cabecera,
+      items: items,
       cuotas,
       respuestaSunat,
     };

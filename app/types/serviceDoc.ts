@@ -121,7 +121,7 @@ export type Cabecera = {
   DIRPARTIDA: string;
   TIPODOCREL: string;
   NUMDOCREL: string;
-  STATUS: string;
+  STATUS: string | number;
   NUMLICCHOF: string;
 };
 

@@ -1,9 +1,10 @@
 {
-    "cabecera": "C:/Users/Desarrollo05/Desktop/LECTURA_DBF_GUIA_REMISION/CABGUIAREM (1).dbf",
-    "detalle":"C:/Users/Desarrollo05/Desktop/LECTURA_DBF_GUIA_REMISION/DETGUIAREM (1).dbf",
-    "ruc":"10704012964",
-    "id_sucursal":1,
-    "ruta_respuesta_sunat":"/sent/sunat_answer.dbf",
-    "tiempo": 5000,
-    "tiempo_limpiar_errores":6000
+  "cabecera": "C:/Users/Desarrollo05/Desktop/LECTURA_DBF_GUIA_REMISION/CABGUIAREM (1).dbf",
+  "detalle": "C:/Users/Desarrollo05/Desktop/LECTURA_DBF_GUIA_REMISION/DETGUIAREM (1).dbf",
+  "ruc": "10704012964",
+  "id_sucursal": 1,
+  "ruta_respuesta_sunat": "/sent/sunat_answer.dbf",
+  "tiempo": 5000,
+  "tiempo_limpiar_errores": 6000,
+  "ignorar_documento_enviado_sunat": ""
 }
