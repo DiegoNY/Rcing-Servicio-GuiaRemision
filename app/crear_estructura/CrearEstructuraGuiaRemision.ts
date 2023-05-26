@@ -15,8 +15,8 @@ export const CrearEstructuraGuiaRemision = (
         CodModTras: documento.MODTRASGUI,
         DesModTras: ValidarTipoTraslado(documento.MODTRASGUI),
         FechaIniTraslado: documento.FECINITRAS,
-        PesoBruto: item.PESOITEM == "0" ? 1 : Number(item.PESOITEM),
-        NroBultos: Number(item.BULTONITEM),
+        PesoBruto: documento.PSOBRUTOTB == 0 ? 1 : Number(documento.PSOBRUTOTB),
+        NroBultos: Number(documento.NUMTOTBULT),
         TipoDocConductor:
           documento.MODTRASGUI == "01" ? Number(documento.TIPDOCTRAN) : 1,
         NroDocConductor:
